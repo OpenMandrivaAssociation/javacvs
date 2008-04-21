@@ -33,7 +33,7 @@
 
 Name:           javacvs
 Version:        5.0
-Release:        %mkrel 1.0.1
+Release:        %mkrel 1.0.2
 Epoch:          0
 Summary:        Netbeans CVS module and library
 
@@ -102,10 +102,6 @@ cvs program. It's base for the module.
 Summary:        Netbeans %{name} library
 Group:          Development/Java
 Requires:       %{name} = %{epoch}:%{version}-%{release}
-%if %{gcj_support}
-Requires(post):   java-gcj-compat
-Requires(postun): java-gcj-compat
-%endif
 
 %description    lib
 %{summary}.
@@ -190,20 +186,20 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %files
-%defattr(-,root,root,-)
+%defattr(0644,root,root,0755)
 %dir %{_javadir}/%{name}
 
 %files lib
-%defattr(-,root,root,-)
+%defattr(0644,root,root,0755)
 %{_javadir}/%{name}/*.jar
 %{_datadir}/maven2/poms/*
-%{_mavendepmapfragdir}
+%config(noreplace) %{_mavendepmapfragdir}/*
 %if %{gcj_support}
-%dir %attr(-,root,root) %{_libdir}/gcj/%{name}
+%dir %{_libdir}/gcj/%{name}
 %attr(-,root,root) %{_libdir}/gcj/%{name}/cvslib-%{version}.jar.*
 %endif
 
 %files lib-javadoc
-%defattr(-,root,root,-)
+%defattr(0644,root,root,0755)
 %doc %{_javadocdir}/%{name}-lib-%{version}
 %doc %{_javadocdir}/%{name}-lib

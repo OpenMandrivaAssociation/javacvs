@@ -33,7 +33,7 @@
 
 Name:           javacvs
 Version:        5.0
-Release:        %mkrel 3.0.2
+Release:        %mkrel 3.0.3
 Epoch:          0
 Summary:        Netbeans CVS module and library
 

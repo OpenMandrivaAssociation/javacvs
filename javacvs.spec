@@ -141,36 +141,36 @@ cd libmodule
 %{ant} -Dcluster=netbeans -Dcode.name.base.dashes=cvsclient jar javadoc
 
 %install
-rm -rf $RPM_BUILD_ROOT
-install -dm 755 $RPM_BUILD_ROOT%{_javadir}/%{name}
+rm -rf %{buildroot}
+install -dm 755 %{buildroot}%{_javadir}/%{name}
 
 install -pm 644 libmodule/netbeans/modules/cvsclient.jar \
-  $RPM_BUILD_ROOT%{_javadir}/%{name}/cvslib-%{version}.jar
+  %{buildroot}%{_javadir}/%{name}/cvslib-%{version}.jar
 ln -s cvslib-%{version}.jar \
-  $RPM_BUILD_ROOT%{_javadir}/%{name}/cvslib.jar
+  %{buildroot}%{_javadir}/%{name}/cvslib.jar
 ln -s cvslib-%{version}.jar \
-  $RPM_BUILD_ROOT%{_javadir}/%{name}/cvsclient.jar
+  %{buildroot}%{_javadir}/%{name}/cvsclient.jar
 %add_to_maven_depmap org.netbeans lib %{version} JPP/%{name} cvslib
 %add_to_maven_depmap org.netbeans.lib cvsclient %{version} JPP/%{name} cvsclient
 
 # poms
-install -d -m 755 $RPM_BUILD_ROOT%{_datadir}/maven2/poms
+install -d -m 755 %{buildroot}%{_datadir}/maven2/poms
 install -m 644 %{SOURCE1} \
-    $RPM_BUILD_ROOT%{_datadir}/maven2/poms/JPP.%{name}-cvslib.pom
+    %{buildroot}%{_datadir}/maven2/poms/JPP.%{name}-cvslib.pom
 install -m 644 %{SOURCE1} \
-    $RPM_BUILD_ROOT%{_datadir}/maven2/poms/JPP.%{name}-cvsclient.pom
+    %{buildroot}%{_datadir}/maven2/poms/JPP.%{name}-cvsclient.pom
 
 # javadoc
-install -dm 755 $RPM_BUILD_ROOT%{_javadocdir}/%{name}-lib-%{version}
-cp -pr nbbuild/build/javadoc/cvsclient/* $RPM_BUILD_ROOT%{_javadocdir}/%{name}-lib-%{version}
-ln -s %{name}-lib-%{version} $RPM_BUILD_ROOT%{_javadocdir}/%{name}-lib 
+install -dm 755 %{buildroot}%{_javadocdir}/%{name}-lib-%{version}
+cp -pr nbbuild/build/javadoc/cvsclient/* %{buildroot}%{_javadocdir}/%{name}-lib-%{version}
+ln -s %{name}-lib-%{version} %{buildroot}%{_javadocdir}/%{name}-lib 
 
 %if %{gcj_support}
 %{_bindir}/aot-compile-rpm
 %endif
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 
 %post lib

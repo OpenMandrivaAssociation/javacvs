@@ -117,7 +117,7 @@ Group:          Development/Java
 %prep
 %setup -q -n %{name}
 %remove_java_binaries
-%patch0 -b .sav
+%patch0 -p0 -b .sav
 mkdir -p libs/external
 mkdir -p nbbuild/dummy
 mkdir -p nbbuild/javadoctools
@@ -141,36 +141,36 @@ cd libmodule
 %{ant} -Dcluster=netbeans -Dcode.name.base.dashes=cvsclient jar javadoc
 
 %install
-rm -rf %{buildroot}
-install -dm 755 %{buildroot}%{_javadir}/%{name}
+rm -rf $RPM_BUILD_ROOT
+install -dm 755 $RPM_BUILD_ROOT%{_javadir}/%{name}
 
 install -pm 644 libmodule/netbeans/modules/cvsclient.jar \
-  %{buildroot}%{_javadir}/%{name}/cvslib-%{version}.jar
+  $RPM_BUILD_ROOT%{_javadir}/%{name}/cvslib-%{version}.jar
 ln -s cvslib-%{version}.jar \
-  %{buildroot}%{_javadir}/%{name}/cvslib.jar
+  $RPM_BUILD_ROOT%{_javadir}/%{name}/cvslib.jar
 ln -s cvslib-%{version}.jar \
-  %{buildroot}%{_javadir}/%{name}/cvsclient.jar
+  $RPM_BUILD_ROOT%{_javadir}/%{name}/cvsclient.jar
 %add_to_maven_depmap org.netbeans lib %{version} JPP/%{name} cvslib
 %add_to_maven_depmap org.netbeans.lib cvsclient %{version} JPP/%{name} cvsclient
 
 # poms
-install -d -m 755 %{buildroot}%{_datadir}/maven2/poms
+install -d -m 755 $RPM_BUILD_ROOT%{_datadir}/maven2/poms
 install -m 644 %{SOURCE1} \
-    %{buildroot}%{_datadir}/maven2/poms/JPP.%{name}-cvslib.pom
+    $RPM_BUILD_ROOT%{_datadir}/maven2/poms/JPP.%{name}-cvslib.pom
 install -m 644 %{SOURCE1} \
-    %{buildroot}%{_datadir}/maven2/poms/JPP.%{name}-cvsclient.pom
+    $RPM_BUILD_ROOT%{_datadir}/maven2/poms/JPP.%{name}-cvsclient.pom
 
 # javadoc
-install -dm 755 %{buildroot}%{_javadocdir}/%{name}-lib-%{version}
-cp -pr nbbuild/build/javadoc/cvsclient/* %{buildroot}%{_javadocdir}/%{name}-lib-%{version}
-ln -s %{name}-lib-%{version} %{buildroot}%{_javadocdir}/%{name}-lib 
+install -dm 755 $RPM_BUILD_ROOT%{_javadocdir}/%{name}-lib-%{version}
+cp -pr nbbuild/build/javadoc/cvsclient/* $RPM_BUILD_ROOT%{_javadocdir}/%{name}-lib-%{version}
+ln -s %{name}-lib-%{version} $RPM_BUILD_ROOT%{_javadocdir}/%{name}-lib 
 
 %if %{gcj_support}
 %{_bindir}/aot-compile-rpm
 %endif
 
 %clean
-rm -rf %{buildroot}
+rm -rf $RPM_BUILD_ROOT
 
 
 %post lib
@@ -203,3 +203,33 @@ rm -rf %{buildroot}
 %defattr(0644,root,root,0755)
 %doc %{_javadocdir}/%{name}-lib-%{version}
 %doc %{_javadocdir}/%{name}-lib
+
+
+%changelog
+* Fri Dec 03 2010 Oden Eriksson <oeriksson@mandriva.com> 0:5.0-3.0.5mdv2011.0
++ Revision: 606071
+- rebuild
+
+* Wed Mar 17 2010 Oden Eriksson <oeriksson@mandriva.com> 0:5.0-3.0.4mdv2010.1
++ Revision: 523044
+- rebuilt for 2010.1
+
+* Tue Sep 01 2009 Christophe Fergeau <cfergeau@mandriva.com> 0:5.0-3.0.3mdv2010.0
++ Revision: 423698
+- rebuild
+
+* Wed Aug 06 2008 Thierry Vignaud <tv@mandriva.org> 0:5.0-3.0.2mdv2009.0
++ Revision: 264753
+- rebuild early 2009.0 package (before pixel changes)
+
+* Tue Apr 22 2008 David Walluck <walluck@mandriva.org> 0:5.0-1.0.2mdv2009.0
++ Revision: 196392
+- remove hard requires on java-gcj-compat
+- fix permissions
+- don't own %%{_mavendepmapfragdir}
+
+* Mon Feb 18 2008 Alexander Kurtakov <akurtakov@mandriva.org> 0:5.0-1.0.1mdv2008.1
++ Revision: 171678
+- import javacvs
+
+

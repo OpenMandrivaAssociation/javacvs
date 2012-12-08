@@ -1,15 +1,2 @@
 sources:
-  "cvsclient-20060125.pom:"	89f139ce134d9b10a6e476a3d1fd6f0e23c3ce6e
-  "javacvs-5.0.tar.gz:"	e292d6e4c2718dc06c5b5cf2ff7b648b4ce59c00
-  "javacvs-common.xml:"	e31952bbaceed02016774376bad6a94f92f6b1ed
-  "javacvs-default-properties.xml:"	4143353d310976453228e0bad7b3650f9735601b
-  "javacvs-default.xml:"	182e93ceff5125d7d50541c2a55056c52902bd9d
-  "javacvs-javadoctools-apichanges-empty.xml:"	a3669e4e6cbfa8198d5c775a5c70429e5332df95
-  "javacvs-javadoctools-apichanges.xsl:"	9ba7002fb056660adee779b30fb47fd47ecd7614
-  "javacvs-javadoctools-disallowed-links.xml:"	b9b886331d970d61b1f646b024b439efbcc90b1f
-  "javacvs-javadoctools-javadoc.css:"	54dce4436388f57b6b3aea8211b4cce66e659c7f
-  "javacvs-javadoctools-links.xml:"	3db5bb3508b63ff28a819e400e913af6df0ca1e9
-  "javacvs-javadoctools-properties.xml:"	9bdc06cfaee08201e3c3ed1743e6f61e0d12c2b6
-  "javacvs-javadoctools-replaces.xml:"	6f02ffd5592ee3a4e705db77b563f89c2e7fb45b
-  "javacvs-javadoctools-template.xml:"	1103ba292098a9e87f5ea6cb83d2b0e21a362b20
-  "javacvs-projectized.xml:"	56070d914403a8f9a4317f334bb8640b556d1ebc
+  "javacvs-5.0.tar.gz": e292d6e4c2718dc06c5b5cf2ff7b648b4ce59c00

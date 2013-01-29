@@ -1,2 +1,10 @@
 sources:
-  "javacvs-5.0.tar.gz": e292d6e4c2718dc06c5b5cf2ff7b648b4ce59c00
+  javacvs-5.0.tar.gz: e292d6e4c2718dc06c5b5cf2ff7b648b4ce59c00
+  javacvs-common.xml: e31952bbaceed02016774376bad6a94f92f6b1ed
+  javacvs-default-properties.xml: 4143353d310976453228e0bad7b3650f9735601b
+  javacvs-default.xml: 182e93ceff5125d7d50541c2a55056c52902bd9d
+  javacvs-javadoctools-apichanges-empty.xml: a3669e4e6cbfa8198d5c775a5c70429e5332df95
+  javacvs-javadoctools-apichanges.xsl: 9ba7002fb056660adee779b30fb47fd47ecd7614
+  javacvs-javadoctools-disallowed-links.xml: b9b886331d970d61b1f646b024b439efbcc90b1f
+  javacvs-javadoctools-template.xml: 1103ba292098a9e87f5ea6cb83d2b0e21a362b20
+  javacvs-projectized.xml: 56070d914403a8f9a4317f334bb8640b556d1ebc

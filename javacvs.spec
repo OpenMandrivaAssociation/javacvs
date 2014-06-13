@@ -1,7 +1,7 @@
 Summary:	Netbeans CVS module and library
 Name:		javacvs
 Version:	5.0
-Release:	8
+Release:	9
 Group:		Development/Java
 License:	Sun Public License
 Url:		http://javacvs.netbeans.org/

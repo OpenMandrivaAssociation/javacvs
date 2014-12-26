@@ -1,9 +1,0 @@
---- libmodule/build.xml.sav0	2007-12-23 15:40:25.000000000 +0100
-+++ libmodule/build.xml	2007-12-23 15:50:16.000000000 +0100
-@@ -12,5 +12,5 @@
- Microsystems, Inc. All Rights Reserved.
- -->
- <project basedir="." default="netbeans" name="javacvs/libmodule">
--    <import file="../../nbbuild/templates/projectized.xml"/>
-+    <import file="../nbbuild/templates/projectized.xml"/>
- </project>
